@@ -12,11 +12,11 @@ export default async function () {
         await page.click('.takenoko > .web');
         logger.info('clicked...');
         const response = await page.waitForResponse('https://api.vote2019.net/api/vote');
-        if (!response.ok()) {
+        if (response.ok()) {
             const responseText = await response.text();
             logger.info('ok: ' + responseText);
         } else {
-            logger.info('error:' + response.statusText);
+            logger.info('error:' + response.statusText());
         }
     } catch (err) {
         logger.info(err);

@@ -67,14 +67,14 @@ function default_1() {
                     return [4 /*yield*/, page.waitForResponse('https://api.vote2019.net/api/vote')];
                 case 7:
                     response = _a.sent();
-                    if (!!response.ok()) return [3 /*break*/, 9];
+                    if (!response.ok()) return [3 /*break*/, 9];
                     return [4 /*yield*/, response.text()];
                 case 8:
                     responseText = _a.sent();
                     logger_1["default"].info('ok: ' + responseText);
                     return [3 /*break*/, 10];
                 case 9:
-                    logger_1["default"].info('error:' + response.statusText);
+                    logger_1["default"].info('error:' + response.statusText());
                     _a.label = 10;
                 case 10: return [3 /*break*/, 14];
                 case 11:
