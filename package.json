@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "build": "rm -r ./dist && tsc ./src/* --outDir ./dist",
+    "vote-now": "node ./dist/now.js",
+    "start": "pm2 start ./dist/schedule.js",
+    "status": "pm2 status ./dist/schedule.js",
+    "stop": "pm2 stop ./dist/schedule.js"
+  },
+  "dependencies": {
+    "cron": "^1.7.1",
+    "log4js": "^5.0.0",
+    "pm2": "^3.5.1",
+    "puppeteer": "^1.19.0"
+  },
+  "devDependencies": {
+    "@types/cron": "^1.7.1",
+    "@types/log4js": "^2.3.5",
+    "@types/puppeteer": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
+}
