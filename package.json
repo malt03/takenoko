@@ -9,12 +9,14 @@
   "dependencies": {
     "cron": "^1.7.1",
     "log4js": "^5.0.0",
+    "node-notifier": "^5.4.1",
     "pm2": "^3.5.1",
     "puppeteer": "^1.19.0"
   },
   "devDependencies": {
     "@types/cron": "^1.7.1",
     "@types/log4js": "^2.3.5",
+    "@types/node-notifier": "^5.4.0",
     "@types/puppeteer": "^1.19.1",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"

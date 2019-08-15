@@ -1,5 +1,6 @@
 import constants from './constants';
 import * as pm2 from 'pm2';
+import notify from '../notify/notify';
 
 pm2.connect((err) => {
   if (err) {
@@ -11,13 +12,13 @@ pm2.connect((err) => {
     pm2.disconnect();
     if (err) { throw err; }
     if (processDescriptions.length === 0) {
-      console.info('takenoko is not started');
+      notify('たけのこ投票機は起動されていません');
       return;
     }
     if (processDescriptions[0].pm2_env && processDescriptions[0].pm2_env.status) {
-      console.info(`takenoko is ${processDescriptions[0].pm2_env.status}`);
+      notify(`たけのこ投票機の状態は '${processDescriptions[0].pm2_env.status}' です`);
     } else {
-      console.error('unknown status');
+      notify('たけのこ投票機はなんかうまく動いていません');
     }
   });
 });

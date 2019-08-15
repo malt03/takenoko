@@ -1,5 +1,6 @@
 import constants from './constants';
 import * as pm2 from 'pm2';
+import notify from '../notify/notify';
 
 pm2.connect((err) => {
   if (err) {
@@ -10,6 +11,6 @@ pm2.connect((err) => {
   pm2.stop(constants.name, (err, _) => {
     pm2.disconnect();
     if (err) { throw err; }
-    console.info('stopped');
+    notify('たけのこ投票機を停止しました');
   });
 });
