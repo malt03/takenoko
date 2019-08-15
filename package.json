@@ -2,9 +2,9 @@
   "scripts": {
     "build": "rm -r ./dist && tsc",
     "vote-now": "node ./dist/now.js",
-    "start": "pm2 start ./dist/schedule.js",
-    "status": "pm2 status ./dist/schedule.js",
-    "stop": "pm2 stop ./dist/schedule.js"
+    "start": "node ./dist/daemon/start.js",
+    "status": "node ./dist/daemon/status.js",
+    "stop": "node ./dist/daemon/stop.js"
   },
   "dependencies": {
     "cron": "^1.7.1",
