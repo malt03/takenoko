@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "rm -r ./dist && tsc ./src/* --outDir ./dist",
+    "build": "rm -r ./dist && tsc",
     "vote-now": "node ./dist/now.js",
     "start": "pm2 start ./dist/schedule.js",
     "status": "pm2 status ./dist/schedule.js",
