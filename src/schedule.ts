@@ -7,4 +7,4 @@ const min = Math.floor(Math.random() * 60);
 const sec = Math.floor(Math.random() * 60);
 const cronTime = `${sec} ${min} ${hour} * * *`;
 logger.info('scheduled on ' + cronTime);
-new CronJob(cronTime, () => { vote(); }, null, true);
+new CronJob(cronTime, () => { vote(); }, undefined, true);
