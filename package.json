@@ -1,7 +1,7 @@
 {
   "scripts": {
     "build": "rm -r ./dist && tsc",
-    "vote-now": "node ./dist/now.js",
+    "vote-now": "node ./dist/vote-now.js",
     "start": "node ./dist/daemon/start.js",
     "status": "node ./dist/daemon/status.js",
     "stop": "node ./dist/daemon/stop.js"
