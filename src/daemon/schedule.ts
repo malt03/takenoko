@@ -1,7 +1,7 @@
 import { CronJob } from 'cron';
-import vote from './vote';
-import logger from './logger';
-import notify from './notify/notify';
+import vote from '../vote';
+import logger from '../logger';
+import notify from '../notify/notify';
 
 const hour = Math.floor(Math.random() * 6 + 11); // 11 - 17
 const min = Math.floor(Math.random() * 60);
