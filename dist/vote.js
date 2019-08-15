@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const puppeteer = require("puppeteer");
 const logger_1 = require("./logger");
-const notifier = require("node-notifier");
+const notify_1 = require("./notify/notify");
 async function default_1() {
     logger_1.default.info('launching...');
     const browser = await puppeteer.launch();
@@ -16,16 +16,23 @@ async function default_1() {
         const response = await page.waitForResponse('https://api.vote2019.net/api/vote');
         if (response.ok()) {
             const responseText = await response.text();
-            notifier.notify('たけのこに投票しました！');
-            logger_1.default.info('ok: ' + responseText);
+            const responseObject = JSON.parse(responseText);
+            if (responseObject['status'] && responseObject['status'] === 200) {
+                notify_1.default('たけのこに投票しました！');
+                logger_1.default.info('ok');
+            }
+            else {
+                notify_1.default('たけのこへの投票に失敗しました… エラー: ' + responseText);
+                logger_1.default.info('error response body: ' + responseText);
+            }
         }
         else {
-            notifier.notify('たけのこに投票に失敗しました… エラー:' + response.statusText());
-            logger_1.default.info('error:' + response.statusText());
+            notify_1.default('たけのこに投票に失敗しました… エラー:' + response.statusText());
+            logger_1.default.info('error response:' + response.statusText());
         }
     }
     catch (err) {
-        logger_1.default.info(err);
+        logger_1.default.info('error: ' + err);
     }
     finally {
         await browser.close();

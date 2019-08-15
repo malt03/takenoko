@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const constants_1 = require("./constants");
 const pm2 = require("pm2");
-const notifier = require("node-notifier");
+const notify_1 = require("../notify/notify");
 pm2.connect((err) => {
     if (err) {
         console.error(err);
@@ -13,6 +13,6 @@ pm2.connect((err) => {
         if (err) {
             throw err;
         }
-        notifier.notify('たけのこ投票機を停止しました');
+        notify_1.default('たけのこ投票機を停止しました');
     });
 });
