@@ -9,7 +9,7 @@ pm2.connect((err) => {
 
   pm2.start({
     name: constants.name,
-    script: './dist/schedule.js',
+    script: './dist/daemon/schedule.js',
   }, (err, _) => {
     pm2.disconnect();
     if (err) { throw err; }
